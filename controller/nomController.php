@@ -39,7 +39,7 @@ class nomController{
 		return $this->nomVotes;
 	}
 	public function addNominee($insertArray){
-		$db->insert($insertArray);
+		$this->db->insert($insertArray);
 	}
 
 	}

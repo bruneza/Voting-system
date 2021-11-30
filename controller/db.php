@@ -48,13 +48,13 @@ class dbConnect {
 
   public function insert( $array ) {
     $vnum = count( $array ) - 1;
-    $fields = implode( ',', array_keys( $array ) );
+    // $fields = implode( ',', array_keys( $array ) );  for Fields
     $conn = $this->db();
     $table = $this->table;
-    $sql = "insert into $table values (" . str_repeat( '? , ', $vnum ) . " ? );";
-    $sql = $this->insertSQL( $array );
+    $sql = "insert into $table values (" . str_repeat( '? , ', $vnum ) . " ? )";
     try {
-      $conn->prepare( $sql )->execute( array_values( $array ) );
+      // $conn->prepare( $sql )->execute( array_values( $array ) ); if fields are specified
+      $conn->prepare( $sql )->execute( $array ); 
       return true;
     } catch ( PDOException $e ) {
       echo "Error: " . $sql . $e->getMessage();
