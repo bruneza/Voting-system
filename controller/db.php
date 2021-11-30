@@ -15,7 +15,7 @@ class dbConnect {
     return $this->table;
   }
 
-
+  
   private function db() {
     $servername = "127.0.0.1";
     $db = "isango21";
@@ -51,7 +51,7 @@ class dbConnect {
     $fields = implode( ',', array_keys( $array ) );
     $conn = $this->db();
     $table = $this->table;
-    $sql = "insert into $table (" . $fields . ") values (" . str_repeat( '? , ', $vnum ) . " ? );";
+    $sql = "insert into $table values (" . str_repeat( '? , ', $vnum ) . " ? );";
     $sql = $this->insertSQL( $array );
     try {
       $conn->prepare( $sql )->execute( array_values( $array ) );

@@ -3,7 +3,7 @@ include("controller/nomController.php");
 
 $dbnew = new nomController();
 
-$insertArray
+$insertArray= 
 
 print_r($dbnew->addNominee($insertArray));
 
