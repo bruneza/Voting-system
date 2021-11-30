@@ -33,7 +33,7 @@ class dbConnect {
     $table = $this->table;
     try {
       $conn = $this->db();
-      $sql = $sql = "select * from $table ;";
+      $sql = "select * from $table ;";
       $stmt = $conn->prepare( $sql );
       if ( $stmt->execute() ) {
         return $stmt->fetchall( PDO::FETCH_ASSOC );
@@ -51,7 +51,7 @@ class dbConnect {
     // $fields = implode( ',', array_keys( $array ) );  for Fields
     $conn = $this->db();
     $table = $this->table;
-    $sql = "insert into $table values (" . str_repeat( '? , ', $vnum ) . " ? )";
+    $sql = "insert into $table values (" . str_repeat( '? , ', $vnum ) . " ? ";
     try {
       // $conn->prepare( $sql )->execute( array_values( $array ) ); if fields are specified
       $conn->prepare( $sql )->execute( $array ); 
@@ -60,7 +60,42 @@ class dbConnect {
       echo "Error: " . $sql . $e->getMessage();
       return false;
     }
-  } 
+  }
+
+private function getPrimary(){
+   $table = $this->table;
+    try {
+      $conn = $this->db();
+      $sql = "SHOW KEYS FROM $table WHERE Key_name = 'PRIMARY'";
+      $stmt = $conn->prepare( $sql );
+      if ( $stmt->execute() ) {
+        $result = $stmt->fetch( PDO::FETCH_ASSOC );
+        return $result['Column_name'];
+      }
+
+    } catch ( PDOException $e ) {
+      echo "Error: " . $sql . $e->getMessage();
+    }
+    return "no primary key";
+}
+
+ public function update( $changes, $id ) {
+    $conn = $this->db();
+    foreach($changes as $key=>$value){
+      $changeField[]="$key = '$value'";
+    }
+    print_r($changeField);
+    echo "<br><br>";
+    $sql = "UPDATE $this->table SET " . implode( ',', array_values( $changeField ) ) ." Where ".$this->getPrimary()." = $id;";
+    try {
+      $conn->prepare( $sql )->execute();
+      return true;
+    } catch ( PDOException $e ) {
+      echo "Error: " . $sql . $e->getMessage();
+      return false;
+    }
+  }
+
 }
 
 

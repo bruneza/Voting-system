@@ -41,7 +41,9 @@ class nomController{
 	public function addNominee($insertArray){
 		$this->db->insert($insertArray);
 	}
-
+	public function updateNominee($changes,$id){
+		$this->db->update($changes,$id);
+	}
 	}
 
  ?>
