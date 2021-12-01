@@ -13,7 +13,7 @@ $_SESSION[ "Vote" ] = new votesDB( $_SESSION[ "MACIP" ] );
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ISANGO NA MUZIKA AWARDS 2020</title>
+<title>ISANGO NA MUZIKA AWARDS 2021</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -22,11 +22,11 @@ $_SESSION[ "Vote" ] = new votesDB( $_SESSION[ "MACIP" ] );
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 <link href="ressources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="ressources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="ressources/css/styles.css?t=2" rel="stylesheet" type="text/css">
+<link href="ressources/css/styles.css?t=6" rel="stylesheet" type="text/css">
   <style>.sv{padding: 0 15px;}.card{margin-bottom: 5px;}
   @media screen and (max-width: 600px) {
 .hidden-xs{display:none;}
-	  .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
     padding-right: 5px;
     padding-left: 5px;
 }.container {
@@ -40,15 +40,18 @@ $_SESSION[ "Vote" ] = new votesDB( $_SESSION[ "MACIP" ] );
   
   <!--    Header content-->
   <header class="top-header container" role="banner" >
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-2 hidden-xs logo-col"> <img src="images/isango-logo.jpg" class="img-fluid isango-logo" alt="isango star"> </div>
       <div class="col-md-8 welcome-message">
         <h4 class="welcome-pre">
         <p>Online Voting Page for</p>
          
-        <h1 class="welcome-title black-title" >ISANGO NA MUZIKA AWARDS 2020</h1>
+        <h1 class="welcome-title black-title" >ISANGO NA MUZIKA AWARDS 2021</h1>
       </div>
       <div class="col-md-2 hidden-xs logo-col"> <img src="images/IGIHE Logo.jpg" class="img-fluid igihe-logo" alt="Placeholder image"> </div>
+    </div> -->
+    <div class="welcome-img-row w-100">
+      <img src="images/ISANGO-NAMUZIKA.jpg" class="welcome-img img-fluid w-100">
     </div>
   </header>
   <!--    Body Content-->
@@ -84,8 +87,9 @@ $_SESSION[ "Vote" ] = new votesDB( $_SESSION[ "MACIP" ] );
                 <?php
                 $nomineesinfo = $nominees->getinfo( $key, 1 );
                 foreach ( $nomineesinfo as $nkey => $nvalue ) {
-					$votes = $nominees->getinfo($key,5);
+          $votes = $nominees->getinfo($key,5);
           $artCode = "isango".$nominees->getinfo($key,3)[$nkey].$nominees->getinfo($key,4)[$nkey];
+          $votecode = $nominees->getinfo($key,3)[$nkey]." ".$nominees->getinfo($key,4)[$nkey]
                   ?>
                 <li class="nominees-list-item">
                   <div class="artist-image"> <img class="card-img-top rounded-circle" src="images/<?php  echo $artCode;  ?>.jpg" alt="Card image cap"> </div>
@@ -93,7 +97,8 @@ $_SESSION[ "Vote" ] = new votesDB( $_SESSION[ "MACIP" ] );
                     <p class="card-title">
                       <?php  echo $nvalue;  ?>
                     </p>
-                    <a href="#" name ="vote" class="btn btn-primary vote nomine#<?php  echo $nkey .'#'.$key;  ?>">vote</a><span class="sv votes_<?php  echo $nkey;  ?>"><?php  echo $votes[$nkey];  ?></span><br><span class="message_<?php  echo $nkey;?>"></span> </div>
+                    <p>Code: <?php echo $votecode; ?></p>
+                    <!-- <a href="#" name ="vote" class="btn btn-primary vote nomine#<?php  echo $nkey .'#'.$key;  ?>">vote</a><span class="sv votes_<?php  echo $nkey;  ?>"><?php  echo $votes[$nkey];  ?></span> --><br><span class="message_<?php  echo $nkey;?>"></span> </div>
                 </li>
                 <?php  }?>
               </ul>
@@ -130,8 +135,8 @@ $_SESSION[ "Vote" ] = new votesDB( $_SESSION[ "MACIP" ] );
               </div>
               <ul class="nominees-list">
                 <?php foreach($nominees->getinfo($key,1) as $nkey => $nvalue){ 
-				
-				$votes = $nominees->getinfo($key,5);
+        
+        $votes = $nominees->getinfo($key,5);
           $artCode = "isango".$nominees->getinfo($key,3)[$nkey].$nominees->getinfo($key,4)[$nkey];
                   ?>
                 <li class="nominees-list-item">
@@ -140,7 +145,7 @@ $_SESSION[ "Vote" ] = new votesDB( $_SESSION[ "MACIP" ] );
                     <p class="card-title">
                       <?php  echo $nvalue;  ?>
                     </p>
-                    <a href="#" name ="vote" class="btn btn-primary vote nomine#<?php  echo $nkey .'#'.$key;  ?>">vote</a> <span class="sv votes_<?php  echo $nkey;  ?>"><?php  echo $votes[$nkey];  ?></span><br><span class="message_<?php  echo $nkey;?>"></span></div>
+                    <!-- <a href="#" name ="vote" class="btn btn-primary vote nomine#<?php  echo $nkey .'#'.$key;  ?>">vote</a> <span class="sv votes_<?php  echo $nkey;  ?>"><?php  echo $votes[$nkey];  ?></span> --><br><span class="message_<?php  echo $nkey;?>"></span></div>
                     <?php
 //                      if (isset($_GET['vote']))
 //                    echo $_SESSION[ "Vote" ]->savevisitor( $nvalue, $value );

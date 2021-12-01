@@ -80,14 +80,11 @@ class dbConnect {
     return "failed config";
   }
 
-
-
-
   public function insert( $array ) {
     $vnum = count( $array ) - 1;
     $conn = $this->db();
     $table = $this->table;
-    $sql = "insert into $table values (" . str_repeat( '? , ', $vnum ) . " ? ";
+    $sql = "insert into $table values (" . str_repeat( '? , ', $vnum ) . " ?) ";
     try {
       $conn->prepare( $sql )->execute( $array ); 
       return true;
@@ -104,6 +101,7 @@ class dbConnect {
       $changeField[]="$key = '$value'";
     }
     $sql = "UPDATE $table SET " . implode( ',', array_values( $changeField ) ) ." Where ".$this->getPrimary()." = $id;";
+    echo $sql."<br>".print_r($changes)."<br>";
     try {
       $conn->prepare( $sql )->execute();
       return true;

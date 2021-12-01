@@ -18,7 +18,7 @@ class nomController{
     		$name[] = $nomRec['nom_name'];
     		$code[] = $nomRec['code'];
     		$voteCode[] = "ISANGO".$nomRec['code_cat'].$nomRec['code'];
-    		$votes[] = $nomRec['nom_name'];
+    		$votes[] = $nomRec['nom_votes'];
 		}
 		$this->name = array_combine($id,$name);
 		$this->nomCode = array_combine($id,$code);
@@ -34,7 +34,9 @@ class nomController{
 	public function get_votecode(){
 		return $this->nomVoteCode;
 	}
-	public function get_votes(){
+	public function get_votes($nom){
+		if($nom)
+			return $this->nomVotes[$nom];
 		return $this->nomVotes;
 	}
 	public function addNominee($insertArray){

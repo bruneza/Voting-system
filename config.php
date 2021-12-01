@@ -6,4 +6,4 @@ include 'controller/voteController.php';
 // $ip='105.179.5.146';
 $nominees = new nomController();
 $categories = new catController();
-$voteCon = new voteController('105.179.5.146','2021112527',null);
+$voteCon = new voteController('105.179.5.146','2021112527','movcat_001_ba');
