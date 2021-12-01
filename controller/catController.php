@@ -1,5 +1,4 @@
 <?php 
-include("controller/db.php");
 class catController{
 	private $name;
 	private $catCode;

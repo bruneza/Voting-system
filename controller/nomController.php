@@ -1,5 +1,4 @@
 <?php 
-include("controller/db.php");
 class nomController{
 	private $name;
 	private $catId;
@@ -44,6 +43,12 @@ class nomController{
 	public function updateNominee($changes,$id){
 		$this->db->update($changes,$id);
 	}
+	public function deleteNominee($id){
+		$this->db->delete($id);
+	}
+
+
+
 	}
 
  ?>

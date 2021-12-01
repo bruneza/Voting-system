@@ -1,0 +1,219 @@
+/* CSS Document */
+/****
+***FONTS#
+****/
+@font-face {
+  font-family: hartwell-regular;
+  src: url("../fonts/Hartwell-Regular.woff");
+}
+@font-face {
+  font-family: hartwell-bold;
+  src: url("../fonts/Hartwell-Bold.woff");
+}
+@font-face {
+  font-family: hartwell-black;
+  src: url("../fonts/Hartwell-Black.woff");
+}
+/****
+***TYPOGRAPHY
+****/
+body {
+  font-family: hartwell-regular, arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .bold-font {
+  font-family: hartwell-bold, arial, sans-serif;
+}
+.black-title {
+  font-family: hartwell-black, arial, sans-serif;
+  color: #E54E53;
+}
+/****
+***GENERAL
+****/
+body {
+  display: block;
+  font-weight: 500px;
+  overflow: visible !important;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.page-wrap {
+  background: #E54E53;
+}
+section .row {
+  background: #ffffff;
+}
+.no-padding {
+  padding-right: 0;
+  padding-left: 0;
+}
+.margin-row {
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.page-wrap {
+  overflow: hidden;
+}
+.body-content {}
+.body-content {}
+/***BREADCRUMB***/
+.breadcrumb-row {
+  margin: 2px auto;
+}
+/****
+***TOP NAV
+****/
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+.logo-col .img-fluid {
+  height: 100px;
+  object-fit: contain;
+}
+.welcome-message {
+  padding: 20px;
+  text-align: center;
+}
+.welcome-pre {
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 0;
+}
+.welcome-title {
+  font-size: 25px;
+  font-weight: 900;
+  color: #E54E53;
+  line-height: 1;
+}
+/****
+***SLIDER SECTION
+****/
+.slider-section {
+  background: url("../../images/slider.jpg");
+  background-size: cover;
+  padding: 100px 0 250px;
+}
+.slider-section .slide-header {
+  color: #ffffff;
+  margin: 0 50px;
+  text-align: right;
+}
+.slider-section .slide-header h2 {
+  font-size: 54px;
+}
+.slider-section .slide-header h4 {
+  font-size: 24px;
+}
+/****
+***MUZIKA SECTION
+****/
+.breadcrumb-style1 {
+  background-color: #18232D;
+  font-size: 32px;
+  border-radius: 0;
+}
+.breadcrumb-style1 .breadcrumb-sub {
+  color: #ffffff;
+}
+.nominees-col .card-header {
+  background: #18232D;
+  padding: 5px;
+  z-index: 999;
+}
+.nominees-col h3 {
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+.nominees-list {
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 999;
+}
+.nominees-col:before {
+  position: absolute;
+  top: 30px;
+  left: 85px;
+  content: "";
+  width: 0px;
+  height: 73%;
+  border-right-style: dashed;
+  border-right-width: 1px;
+  z-index: 1;
+}
+.nominees-list li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-flex;
+}
+.nominees-list img {
+  display: inline;
+  width: 60px;
+  height: 60px;
+}
+.nominees-list {
+  list-style: none;
+}
+.artist-vote {
+  padding-left: 5px;
+}
+.artist-vote a {
+  padding: 2px 10px;
+  background: #18232D;
+}
+.artist-vote .card-title {
+  line-height: 1;
+}
+/****ADS**/
+.my-ads {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  height: 100%;
+}
+/*****
+****
+*** FOOTER
+****
+*****/
+footer {
+  background: #18232D;
+  color: white;
+}
+.top-footer {
+  padding: 40px 40px 0;
+}
+.footer-title {
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+  color: #BCBFC4;
+}
+.footer-col ul {
+  list-style: none;
+  padding-left: 0px;
+}
+.footer-col i {
+  padding-right: 10px;
+}
+.footer-col a {
+  color: #ffffff;
+}
+.footer-social-list li {
+  border-bottom: 1px solid #aaaaaa;
+  padding-bottom: 5px;
+}
+.footer-copyright {
+  background: #E54E53;
+}
+.footer-copyright a {
+  color: #ffffff;
+}
